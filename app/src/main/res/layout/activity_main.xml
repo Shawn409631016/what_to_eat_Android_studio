@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/foodPhotoImageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_margin="16dp"
+        android:src="@drawable/foodimg" />
+
+    <TextView
+        android:id="@+id/foodNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_margin="16dp"
+        android:text="foodName" />
+
+    <TextView
+        android:id="@+id/foodCaloriesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:text="foodCalories" />
+
+    <TextView
+        android:id="@+id/foodProteinTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:text="foodProtein" />
+
+    <TextView
+        android:id="@+id/foodCarbTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:text="foodCarb" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/drawAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="再抽一次"
+            android:onClick="onDrawAgainClicked" />
+
+        <Button
+            android:id="@+id/moreInfoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多資訊"
+            android:onClick="onMoreInfoClicked" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
