@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                             Food randomFood = getRandomFood();
                             foodNameTextView.setText(randomFood.getName());
                             foodCaloriesTextView.setText("熱量: " + randomFood.getCalories());
-                            foodProteinTextView.setText("蛋白質: " + randomFood.get蛋白質());
-                            foodCarbTextView.setText("碳水化合物: " + randomFood.get碳水化合物());
+                            foodProteinTextView.setText("蛋白質: " + randomFood.getProtein());
+                            foodCarbTextView.setText("碳水化合物: " + randomFood.getCarbohydrates());
                             Glide.with(MainActivity.this)
                                     .load(randomFood.getImg())
                                     .into(foodPhotoImageView);
@@ -85,8 +85,8 @@ public class MainActivity extends AppCompatActivity {
         Food randomFood = getRandomFood();
         foodNameTextView.setText(randomFood.getName());
         foodCaloriesTextView.setText("熱量: " + randomFood.getCalories());
-        foodProteinTextView.setText("蛋白質: " + randomFood.get蛋白質());
-        foodCarbTextView.setText("碳水化合物: " + randomFood.get碳水化合物());
+        foodProteinTextView.setText("蛋白質: " + randomFood.getProtein());
+        foodCarbTextView.setText("碳水化合物: " + randomFood.getCarbohydrates());
         Glide.with(MainActivity.this)
                 .load(randomFood.getImg())
                 .into(foodPhotoImageView);
