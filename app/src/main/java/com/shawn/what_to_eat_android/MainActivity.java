@@ -97,4 +97,8 @@ public class MainActivity extends AppCompatActivity {
         return mFoodList.get(randomIndex);
     }
 
+    public void setMoreInfoButton(View view) {
+        
+    }
+
 }
