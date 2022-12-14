@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:padding="24dp">
 
     <ImageView
         android:id="@+id/foodPhotoImageView"
@@ -12,41 +11,54 @@
         android:layout_height="300dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/foodimg" />
 
-    <TextView
-        android:id="@+id/foodNameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_margin="16dp"
-        android:text="foodName" />
 
-    <TextView
-        android:id="@+id/foodCaloriesTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"
-        android:text="foodCalories" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="24dp">
 
-    <TextView
-        android:id="@+id/foodProteinTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"
-        android:text="foodProtein" />
+        <TextView
+            android:id="@+id/foodNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="foodName" />
 
-    <TextView
-        android:id="@+id/foodCarbTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="16sp"
-        android:text="foodCarb" />
+        <TextView
+            android:id="@+id/foodCaloriesTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:text="foodCalories" />
+
+        <TextView
+            android:id="@+id/foodProteinTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:text="foodProtein" />
+
+        <TextView
+            android:id="@+id/foodCarbTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:text="foodCarb" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,14 +69,15 @@
 
         <Button
             android:id="@+id/drawAgainButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
             android:text="再抽一次"
             android:onClick="onDrawAgainClicked" />
 
         <Button
             android:id="@+id/moreInfoButton"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="更多資訊"
             android:onClick="onMoreInfoClicked" />

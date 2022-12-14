@@ -1,10 +1,13 @@
 package com.shawn.what_to_eat_android;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private List<Food> mFoodList;
+    Food randomFood;
 
     TextView foodNameTextView;
     TextView foodCaloriesTextView;
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                                 mFoodList.add(document.toObject(Food.class));
                             }
 
-                            Food randomFood = getRandomFood();
+                            randomFood = getRandomFood();
                             foodNameTextView.setText(randomFood.getName());
                             foodCaloriesTextView.setText("熱量: " + randomFood.getCalories());
                             foodProteinTextView.setText("蛋白質: " + randomFood.getProtein());
@@ -81,8 +85,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private Food getRandomFood() {
+        int randomIndex = new Random().nextInt(mFoodList.size());
+        return mFoodList.get(randomIndex);
+    }
+
+    public void onMoreInfoClicked(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(randomFood.getUri()));
+        startActivity(browserIntent);
+    }
+
     public void onDrawAgainClicked(View view) {
-        Food randomFood = getRandomFood();
+        randomFood = getRandomFood();
         foodNameTextView.setText(randomFood.getName());
         foodCaloriesTextView.setText("熱量: " + randomFood.getCalories());
         foodProteinTextView.setText("蛋白質: " + randomFood.getProtein());
@@ -90,15 +104,7 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(MainActivity.this)
                 .load(randomFood.getImg())
                 .into(foodPhotoImageView);
-    }
-
-    private Food getRandomFood() {
-        int randomIndex = new Random().nextInt(mFoodList.size());
-        return mFoodList.get(randomIndex);
-    }
-
-    public void onMoreInfoClicked(View view) {
-
+        Toast.makeText(MainActivity.this, "再抽一次", Toast.LENGTH_SHORT).show();
     }
 
 }
