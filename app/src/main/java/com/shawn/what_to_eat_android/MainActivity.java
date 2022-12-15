@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     TextView foodCaloriesTextView;
     TextView foodCarbTextView;
     TextView foodProteinTextView;
+    TextView appBarTitle;
     ImageView foodPhotoImageView;
     Button drawAgainButton;
     Button moreInfoButton;
@@ -50,9 +51,38 @@ public class MainActivity extends AppCompatActivity {
         foodPhotoImageView = findViewById(R.id.foodPhotoImageView);
         drawAgainButton = findViewById(R.id.drawAgainButton);
         moreInfoButton = findViewById(R.id.moreInfoButton);
+        appBarTitle = findViewById(R.id.appBarTitle);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference foodsRef = db.collection("All Food");
+        CollectionReference foodsRef;
+
+        String collentionPath = getIntent().getStringExtra("collection_path");
+        if(collentionPath != null){
+            foodsRef = db.collection(collentionPath);
+        }else{
+            foodsRef = db.collection("All Food");
+        }
+
+        switch(collentionPath){
+            case "All Food":
+                appBarTitle.setText("所有料理");
+                break;
+            case "Japan Food":
+                appBarTitle.setText("日式料理");
+                break;
+            case "Korea Food":
+                appBarTitle.setText("韓式料理");
+                break;
+            case "Tai Food":
+                appBarTitle.setText("泰式料理");
+                break;
+            case "Taiwan Food":
+                appBarTitle.setText("台式料理");
+                break;
+            case "West Food":
+                appBarTitle.setText("西式料理");
+                break;
+        }
 
         // Retrieve all documents in the "All food" collection
         foodsRef.get()
@@ -108,3 +138,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+
