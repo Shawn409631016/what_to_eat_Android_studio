@@ -73,9 +73,8 @@ class FoodTypeAdapter extends RecyclerView.Adapter<FoodTypeAdapter.ViewHolder>{
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
-    // Inner class for the ViewHolder
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Views in the ViewHolder
         TextView foodTypeTextView;
         ImageView foodTypeImageView;
 
@@ -103,21 +102,16 @@ class FoodTypeAdapter extends RecyclerView.Adapter<FoodTypeAdapter.ViewHolder>{
         }
     }
 
-    // Called when the RecyclerView needs a new ViewHolder
     @NonNull
     @Override
     public FoodTypeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Inflate the layout for the ViewHolder
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_type_item, parent, false);
-
-        // Create a new ViewHolder using the inflated layout
         ViewHolder viewHolder = new ViewHolder(view);
 
-        // Return the ViewHolder
         return viewHolder;
     }
 
-    // Called to display the data at the specified position
     @Override
     public void onBindViewHolder(@NonNull FoodTypeAdapter.ViewHolder holder, int position) {
         // Get the food type at the specified position
@@ -135,4 +129,5 @@ class FoodTypeAdapter extends RecyclerView.Adapter<FoodTypeAdapter.ViewHolder>{
     public int getItemCount() {
         return foodTypes.size();
     }
+
 }

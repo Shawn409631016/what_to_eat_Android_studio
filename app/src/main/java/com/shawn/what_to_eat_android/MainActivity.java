@@ -53,15 +53,7 @@ public class MainActivity extends AppCompatActivity {
         moreInfoButton = findViewById(R.id.moreInfoButton);
         appBarTitle = findViewById(R.id.appBarTitle);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference foodsRef;
-
         String collentionPath = getIntent().getStringExtra("collection_path");
-        if(collentionPath != null){
-            foodsRef = db.collection(collentionPath);
-        }else{
-            foodsRef = db.collection("All Food");
-        }
 
         switch(collentionPath){
             case "All Food":
@@ -84,7 +76,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        // Retrieve all documents in the "All food" collection
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference foodsRef;
+
+        if(collentionPath != null){
+            foodsRef = db.collection(collentionPath);
+        }else{
+            foodsRef = db.collection("All Food");
+        }
+
         foodsRef.get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
